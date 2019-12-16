@@ -14,6 +14,16 @@ public class Car {
     int carID = 0;
     Date entrance;
     Date exit;
+
+    public boolean isEvent() {
+        return event;
+    }
+
+    public void setEvent(boolean event) {
+        this.event = event;
+    }
+
+    boolean event;
     Time time = new Time();
 
     public Date getExit() {

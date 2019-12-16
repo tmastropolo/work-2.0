@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.Console;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
@@ -31,6 +32,7 @@ public class Main {
         double finaltotal = 0;
         int numtickets = 0;
         int numlost = 0;
+        int numevents = 0;
 
 
         int choice;
@@ -44,7 +46,7 @@ public class Main {
             Date leave = time.FinishTime();
             car.exit = leave;
 
-            System.out.println("Enter a choice:\n1)Check In/Close Garage\n2)Check Out\n\n3) Exit");
+            System.out.println("Enter a choice:\n1)Check In/Close Garage\n2)Check Out\n3) Close Garage\n\n4) Exit");
             choice = key.nextInt();
 
             if (choice == 1) {
@@ -53,9 +55,27 @@ public class Main {
                 int in = key.nextInt();
 
                 if (in == 1) {
-                    numtickets++;
-                    break;
-                } else if (in == 2) {
+
+                    tick.DisplayCheckInType();
+                    int type = key.nextInt();
+                    if (type == 1){
+                        tick.ReceiptIN(id, enter);
+                        numtickets++;
+                    }
+                    else if (type == 2){
+                        tick.ReceiptIN(id,enter);
+                        numevents++;
+                        car.event = true;
+                    }
+                }
+
+                else if (in == 2){
+                    int out;
+                    
+
+                }
+
+                else if (in == 3) {
                     // display end of day
                     double losttotal = numlost * 25.00;
                     finaltotal= losttotal + totalCustomer;
@@ -94,7 +114,7 @@ public class Main {
 
             }
 
-        } while (choice == 3);
+        } while (choice == 4);
     }
 
 

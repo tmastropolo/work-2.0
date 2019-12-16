@@ -85,17 +85,49 @@ public class Ticket {
     public void DisplayIn(){
         System.out.println("Best Value Parkig Garage");
         System.out.println("========================");
-        System.out.println("1 - Check/In");
-        System.out.println("2 - Close Garage");
+        System.out.println("1 - Check-In");
+        System.out.println("2 - Check-Out");
+        System.out.println("3 - Close Garage");
         System.out.print("=> ");
 
     }
 
-    public void DisplayEnd(double cktotal, int numtickets, int numLost, double lost, double finalTotal ) {
+    public void DisplayCheckInType(){
+        System.out.println("Best Value Parkig Garage");
+        System.out.println("Check-In");
+        System.out.println("========================");
+        System.out.println("1 - Ticket");
+        System.out.println("2 - Special Event");
+        System.out.print("=> ");
+    }
+
+    public void DisplayTicketID(){
+        System.out.println("Best Value Parkig Garage");
+        System.out.println("Check-Out - Ticket");
+        System.out.println("========================");
+        System.out.println("Ticket Number =>");
+    }
+
+    public void ReceiptIN(int carID, Date startTime){
+        System.out.println("Best Value Parkig Garage");
+        System.out.println("========================");
+        System.out.println("Receipt for a vehicle id #" +carID );
+        System.out.println("\n\n" + startTime);
+    }
+    public void ReceiptOut(int carID, long diff, Date startTime, Date finTime, double total){
+        System.out.println("Best Value Parkig Garage");
+        System.out.println("========================");
+        System.out.println("Ticket for a vehicle id #" +carID );
+        System.out.println("\n\n" + diff + "hours parked  " + startTime +"am - " + finTime + "pm");
+        System.out.println("$" + total);
+    }
+
+    public void DisplayEnd(double cktotal, int numevents, int numtickets, int numLost, double event, double lost, double finalTotal ) {
         System.out.println("Best Value Parking Garage");
         System.out.println("=========================");
         System.out.println("Activity to Date");
         System.out.println("$" + cktotal + " was collected from " + numtickets + " Check Ins");
+        System.out.println("$" + event + " was collected from " + numevents + " Lost Tickets");
         System.out.println("$" + lost + " was collected from " + numLost + " Lost Tickets");
         System.out.println("$" + finalTotal + " was collected overall");
     }
@@ -122,6 +154,14 @@ public class Ticket {
         System.out.println("Receipt for a vehicle id " + carID);
         System.out.println("Lost Ticket");
         System.out.println("$25.00");
+    }
+
+    public void DisplayEvent(int carID){
+        System.out.println("Best Value Parking Garage");
+        System.out.println("=========================");
+        System.out.println("Receipt for a vehicle id " + carID);
+        System.out.println("Special Event");
+        System.out.println("$20.00");
     }
 
 

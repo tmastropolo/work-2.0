@@ -22,15 +22,13 @@ public class Main {
         Time time = new Time();
         Car car = new Car();
 
+        car.ReadFile();
 
 
 
-        int id = tick.getTicketID();
-        long prked = 0;
-        Date prkStart = tick.getStrDate();
-        Date parkfin = tick.getFinDate();
-        double total = 0.00;
-        double cktotal = 0.00;
+
+        int id = car.carID;
+
 
         double finaltotal = 0;
         int numtickets = 0;
@@ -93,27 +91,7 @@ public class Main {
         return prkStart;
     }
 
-    public static void WritetoFile() throws IOException {
-        Car car = new Car();
-        FileWriter fileWriter = new FileWriter(Garage.txt);
-        fileWriter.write(String.valueOf(car.carID +"," + car.entrance+ "," + car.exit));
-        fileWriter.close();
-    }
 
-    public static void ReadFile() throws IOException, ParseException {
-        Car car = new Car();
-        Path path = Paths.get(Garage.txt);
-        Scanner scanner = new Scanner(path);
-        while(scanner.hasNextLine()){
-            String line = scanner.nextLine();
-            String[] ticket = line.split(",");
-            car.carID = Integer.parseInt(ticket[0]);
-            DateFormat dateFormat = new SimpleDateFormat("hh:mm");
-            car.entrance = dateFormat.parse((ticket[1]));
-            car.exit = dateFormat.parse((ticket[2]));
-        }
-
-    }
 
 
 }

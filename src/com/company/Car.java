@@ -52,7 +52,7 @@ public class Car {
             String line = scanner.nextLine();
             String[] ticket = line.split(",");
             car.carID = Integer.parseInt(ticket[0]);
-            DateFormat dateFormat = new SimpleDateFormat("hh:mm");
+            DateFormat dateFormat = new SimpleDateFormat("hh");
             car.entrance = dateFormat.parse((ticket[1]));
             car.exit = dateFormat.parse((ticket[2]));
         }

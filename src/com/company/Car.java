@@ -39,6 +39,10 @@ public class Car {
         return carID;
     }
 
+    /**
+     * Creat carid
+     * @param carID
+     */
     public void setCarID(int carID) {
         carID ++;
         this.carID = carID;
@@ -53,9 +57,14 @@ public class Car {
         this.entrance = time.StartTime();
     }
 
+    /**
+     * Read out of file into car object.
+     * @throws IOException
+     * @throws ParseException
+     */
     public void ReadFile() throws IOException, ParseException {
         Car car = new Car();
-        Path path = Paths.get(Garage.txt);
+        Path path = Paths.get("src/Garage.txt");
         Scanner scanner = new Scanner(path);
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
@@ -70,11 +79,12 @@ public class Car {
 
     /**
      * @throws IOException
+     * Writes into File
      */
     public void WritetoFile() throws IOException {
         Car car = new Car();
         carID ++;
-        FileWriter fileWriter = new FileWriter(Garage.txt);
+        FileWriter fileWriter = new FileWriter("src/Garage.txt");
         fileWriter.write(String.valueOf(car.carID +"," + car.entrance+ "," + car.event + "," + car.exit ));
         fileWriter.close();
         return;

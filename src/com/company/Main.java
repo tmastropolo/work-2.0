@@ -11,7 +11,9 @@ public class Main {
     public static void main(String[] args) throws ParseException, IOException {
         // write your code here
 
-
+/**
+ * Inherit Classes
+ */
         Ticket tick = new Ticket();
         Time time = new Time();
         Car car = new Car();
@@ -30,7 +32,9 @@ public class Main {
         int numlost = 0;
         int numevents = 0;
 
-
+/**
+ * Start of program
+ */
         int choice;
         Ticket ticket = new Ticket();
         Scanner key = new Scanner(System.in);
@@ -42,11 +46,13 @@ public class Main {
             Date leave = time.FinishTime();
             car.exit = leave;
 
-            System.out.println("Enter a choice:\n1)Check In/Close Garage\n2)Check Out\n3) Close Garage\n\n4) Exit");
+            System.out.println("Enter a choice:\n1)Check In/Close Garage\n2)Check Out\n3) Close Garage\n4) Exit");
             choice = key.nextInt();
 
             if (choice == 1) {
-                // display ticket
+                /**
+                 * Display ticket                  */
+
                 tick.DisplayIn();
                 int in = key.nextInt();
 

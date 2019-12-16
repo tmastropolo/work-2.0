@@ -13,18 +13,16 @@ import java.util.Scanner;
 public class Car {
     int carID = 0;
     Date entrance;
+    Date exit;
+    Time time = new Time();
 
     public Date getExit() {
         return exit;
     }
 
-    public void setExit(Date exit) {
-        this.exit = exit;
+    public void setExit(Date exit) throws ParseException {
+        this.exit = time.FinishTime();
     }
-
-    Date exit;
-
-    Time time = new Time();
 
     public int getCarID() {
         return carID;

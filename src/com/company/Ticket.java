@@ -111,15 +111,15 @@ public class Ticket {
     public void DisplayCustomer(Date startTime, Date finTime, long prkTime, double total, int carID){
         System.out.println("Best Value Parkig Garage");
         System.out.println("========================");
-        System.out.println("Receipt for a vehicle id " + carID//3`1 q);
+        System.out.println("Receipt for a vehicle id " + carID);
         System.out.println(prkTime + " hours parked  " + startTime + "am - " + finalTotal + "pm");
         System.out.println("$" + total);
     }
 
-    public void DisplayLost(){
+    public void DisplayLost(int carID){
         System.out.println("Best Value Parking Garage");
         System.out.println("=========================");
-        System.out.println("Receipt for a vehicle id " + id);
+        System.out.println("Receipt for a vehicle id " + carID);
         System.out.println("Lost Ticket");
         System.out.println("$25.00");
     }

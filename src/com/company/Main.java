@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -94,21 +96,24 @@ public class Main {
     public static void WritetoFile() throws IOException {
         Car car = new Car();
         FileWriter fileWriter = new FileWriter(Garage.txt);
-        fileWriter.write(String.valueOf(car.carID +"," + car.entrance));
+        fileWriter.write(String.valueOf(car.carID +"," + car.entrance+ "," + car.exit));
         fileWriter.close();
     }
 
-    public static void ReadFile() throws IOException {
+    public static void ReadFile() throws IOException, ParseException {
         Car car = new Car();
         Path path = Paths.get(Garage.txt);
         Scanner scanner = new Scanner(path);
         while(scanner.hasNextLine()){
             String line = scanner.nextLine();
             String[] ticket = line.split(",");
-            car.carID = ticket[0];
+            car.carID = Integer.parseInt(ticket[0]);
+            DateFormat dateFormat = new SimpleDateFormat("hh:mm");
+            car.entrance = dateFormat.parse((ticket[1]));
+            car.exit = dateFormat.parse((ticket[2]));
         }
 
     }
 
-    public long
+
 }

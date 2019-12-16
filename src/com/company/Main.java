@@ -24,7 +24,7 @@ public class Main {
         Double price;
 
         long prkHours;
-
+        int checkoutID;
 
 
 
@@ -71,7 +71,31 @@ public class Main {
 
                 else if (in == 2){
                     int out;
-                    
+                    tick.DisplayOut();
+                    out = key.nextInt();
+
+                    if (out == 1 ){
+                        tick.DisplayTicketID();
+                        checkoutID = key.nextInt();
+
+                        //Match Id
+
+                        if (car.event = false){
+                            tick.DisplayEvent(checkoutID);
+                        }
+                        else {
+                                prkHours = time.Difference();
+                                if (prkHours <= 3) {
+                                    price = 5.00;
+                                } else if (prkHours <= 13) {
+                                    price = (prkHours - 3) * 1.00 + 5.00;
+                                } else {
+                                    price = 15.00;
+                                }
+                            tick.DisplayCustomer(car.entrance, car.exit, prkHours, price, checkoutID);
+                            totalCustomer += price;
+                        }
+                    }
 
                 }
 
@@ -82,26 +106,7 @@ public class Main {
                     tick.DisplayEnd(totalCustomer, numtickets, numlost, losttotal, finaltotal);
 
                 }
-            } else if (choice == 2) {
-                //display out
 
-                tick.DisplayOut();
-                int out = key.nextInt();
-
-                if (out == 1) {
-
-                    prkHours = time.Difference();
-                    if (prkHours <= 3) {
-                        price = 5.00;
-                    } else if (prkHours <= 13) {
-                        price = (prkHours - 3) * 1.00 + 5.00;
-                    } else {
-                        price = 15.00;
-                    }
-
-                    //Car Exit
-                    tick.DisplayCustomer(enter, leave, prkHours, price, id);
-                    totalCustomer += price;
 
 
                 } else if (out == 2) {

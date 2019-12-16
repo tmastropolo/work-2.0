@@ -13,7 +13,8 @@ import java.util.Scanner;
 public class Car {
     int carID = 0;
     Date entrance;
-    Date exit;
+    Date exit = null;
+    boolean event = false;
 
     public boolean isEvent() {
         return event;
@@ -23,7 +24,7 @@ public class Car {
         this.event = event;
     }
 
-    boolean event;
+
     Time time = new Time();
 
     public Date getExit() {
@@ -74,7 +75,7 @@ public class Car {
         Car car = new Car();
         carID ++;
         FileWriter fileWriter = new FileWriter(Garage.txt);
-        fileWriter.write(String.valueOf(car.carID +"," + car.entrance+ "," + car.exit));
+        fileWriter.write(String.valueOf(car.carID +"," + car.entrance+ "," + car.event + "," + car.exit ));
         fileWriter.close();
         return;
     }

@@ -1,22 +1,16 @@
 package com.company;
 
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 public class Main {
 
-    public static Date main(String[] args) throws ParseException, IOException {
+    public static void main(String[] args) throws ParseException, IOException {
         // write your code here
 
-        Main obj = new Main();
+
 
         Ticket tick = new Ticket();
         Time time = new Time();
@@ -29,16 +23,21 @@ public class Main {
         Double price;
 
         long prkHours = time.Difference();
-        if (prkHours <= 3){
+        if (prkHours <= 3) {
             price = 5.00;
-        }
-        else if (prkHours <= 13) {
-              price = (prkHours - 3) * 1.00 +5.00;
-        }
-        else {
+        } else if (prkHours <= 13) {
+            price = (prkHours - 3) * 1.00 + 5.00;
+        } else {
             price = 15.00;
         }
 
+        Date enter = time.StartTime();
+        car.entrance = enter;
+
+        Date leave = time.FinishTime();
+        car.exit = leave;
+
+        double totalCustomer = 0.00;
         double finaltotal = 0;
         int numtickets = 0;
         int numlost = 0;
@@ -61,7 +60,8 @@ public class Main {
                     break;
                 } else if (in == 2) {
                     // display end of day
-                    tick.DisplayEnd(cktotal, numtickets, numlost, losttotal, finaltotal);
+                    finaltotal= losttotal + totalCustomer;
+                    tick.DisplayEnd(totalCustomer, numtickets, numlost, losttotal, finaltotal);
 
                 }
             } else if (choice == 2) {
@@ -71,17 +71,24 @@ public class Main {
                 int out = key.nextInt();
 
                 if (out == 1) {
+                    long prkHours = time.Difference();
+                    if (prkHours <= 3) {
+                        price = 5.00;
+                    } else if (prkHours <= 13) {
+                        price = (prkHours - 3) * 1.00 + 5.00;
+                    } else {
+                        price = 15.00;
+                    }
 
-                    prkStart = ticket.getStrDate();
-                    parkfin = ticket.getFinDate();
-                    prked = ticket.difference();
                     //Car Exit
-                    tick.DisplayCustomer(prkStart, parkfin, prked, total, id);
+                    tick.DisplayCustomer(enter, leave, prkHours, price, id);
+                    totalCustomer += price;
+
 
                 } else if (out == 2) {
                     // Display Lost
                     numlost++;
-                    tick.DisplayLost();
+                    tick.DisplayLost(id);
 
                 }
 
@@ -89,10 +96,8 @@ public class Main {
             }
 
         } while (choice == 3);
-
-
-        return prkStart;
     }
+
 
 
 }

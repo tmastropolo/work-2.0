@@ -64,6 +64,7 @@ public class Car {
      */
     public void WritetoFile() throws IOException {
         Car car = new Car();
+        carID ++;
         FileWriter fileWriter = new FileWriter(Garage.txt);
         fileWriter.write(String.valueOf(car.carID +"," + car.entrance+ "," + car.exit));
         fileWriter.close();

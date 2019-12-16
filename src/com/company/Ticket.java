@@ -112,7 +112,7 @@ public class Ticket {
         System.out.println("Best Value Parkig Garage");
         System.out.println("========================");
         System.out.println("Receipt for a vehicle id " + carID);
-        System.out.println(prkTime + " hours parked  " + startTime + "am - " + finalTotal + "pm");
+        System.out.println(prkTime + " hours parked  " + startTime + "am - " + finTime + "pm");
         System.out.println("$" + total);
     }
 

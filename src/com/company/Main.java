@@ -14,7 +14,7 @@ import java.util.Scanner;
 public class Main {
 
     public static Date main(String[] args) throws ParseException, IOException {
-	// write your code here
+        // write your code here
 
         Main obj = new Main();
 
@@ -25,15 +25,24 @@ public class Main {
         car.ReadFile();
 
 
-
-
         int id = car.carID;
+        Double price;
 
+        long prkHours = time.Difference();
+        if (prkHours <= 3){
+            price = 5.00;
+        }
+        else if (prkHours <= 13) {
+              price = (prkHours - 3) * 1.00 +5.00;
+        }
+        else {
+            price = 15.00;
+        }
 
         double finaltotal = 0;
         int numtickets = 0;
-        int numlost= 0;
-        double losttotal = numlost *25.00;
+        int numlost = 0;
+        double losttotal = numlost * 25.00;
 
         int choice;
         Ticket ticket = new Ticket();
@@ -47,24 +56,21 @@ public class Main {
                 tick.DisplayIn();
                 int in = key.nextInt();
 
-                if (in == 1){
-                    numtickets ++;
+                if (in == 1) {
+                    numtickets++;
                     break;
-                }
-                else if (in == 2){
+                } else if (in == 2) {
                     // display end of day
                     tick.DisplayEnd(cktotal, numtickets, numlost, losttotal, finaltotal);
 
                 }
-            }
-
-            else if (choice == 2) {
+            } else if (choice == 2) {
                 //display out
 
                 tick.DisplayOut();
                 int out = key.nextInt();
 
-                if (out == 1){
+                if (out == 1) {
 
                     prkStart = ticket.getStrDate();
                     parkfin = ticket.getFinDate();
@@ -72,9 +78,7 @@ public class Main {
                     //Car Exit
                     tick.DisplayCustomer(prkStart, parkfin, prked, total, id);
 
-                }
-
-                else if (out == 2){
+                } else if (out == 2) {
                     // Display Lost
                     numlost++;
                     tick.DisplayLost();
@@ -82,16 +86,13 @@ public class Main {
                 }
 
 
-
             }
 
-        }while (choice == 3 );
+        } while (choice == 3);
 
 
         return prkStart;
     }
-
-
 
 
 }
